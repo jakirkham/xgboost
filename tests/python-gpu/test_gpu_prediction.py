@@ -601,7 +601,7 @@ class TestGPUPredict:
         orig = cp.random.binomial(1, 0.5, size=rows * cols).reshape(rows, cols)
         predt_orig = booster.inplace_predict(orig)
 
-        X = cp.array(orig, dtype=cp.bool_)
+        X = cp.array(orig, dtype=bool)
         predt = booster.inplace_predict(X)
         cp.testing.assert_allclose(predt, predt_orig)
 
